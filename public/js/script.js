@@ -21,8 +21,8 @@ $(function(){
 			console.log("polling");
 		},
 		dataType: "json",
-		complete: setTimeout(function() {poll()}, 18000000),
-		timeout: 9000000
+		complete: setTimeout(function() {poll()}, 5000),
+		timeout: 2000
 	})
 	})();
 	
