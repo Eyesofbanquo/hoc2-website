@@ -7,4 +7,5 @@ gem "rack"
 gem "sinatra"
 gem "rest-client"
 gem "slim"
+gem "purecss"
 
