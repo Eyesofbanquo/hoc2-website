@@ -8,7 +8,7 @@ require 'rest-client'
 
 class HOC<Sinatra::Base
 	set :static, true
-	set :public_dir, File.dirname(__FILE__) + '/public'
+	set :public_folder, File.dirname(__FILE__) + '/public'
 	get '/' do
 		slim :index
 	end
