@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'rest-client'
+require 'json'
 require 'slim'
 require 'slim/include'
 require 'rest-client'
@@ -18,8 +20,10 @@ class HOC<Sinatra::Base
 	get '/' do
 		slim :index
 	end
-	get '/myroute' do
-		File.read('public/index.html')
+	get '/test' do
+		slim :something
+	end
+	get 'api/v1/youtube' do
 	end
 end
 
