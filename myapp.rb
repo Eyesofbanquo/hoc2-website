@@ -18,6 +18,9 @@ class HOC<Sinatra::Base
 	get '/' do
 		slim :index
 	end
+	get '/myroute' do
+		File.read('public/index.html')
+	end
 end
 
 HOC.run!
