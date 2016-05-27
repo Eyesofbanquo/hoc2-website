@@ -6,3 +6,9 @@
 	color: white;
 	text-shadow: black 1px 2px 1px;
 }
+
+@media only screen and (min-width: 550px) and (-webkit-device-pixel-ration: 3){
+	body{
+		width: 33%;
+	}
+}
