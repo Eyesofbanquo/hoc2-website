@@ -52,10 +52,10 @@ class HOC<Sinatra::Base
 	set :static, true
 	set :public_folder, File.dirname(__FILE__) + '/public'
 	get '/' do
-		slim :index
+		send_file File.join(settings.public_folder, 'index.html');
 	end
-	get '/test' do
-		slim :something
+	get '/twitch' do
+		send_file File.join(settings.public_folder, 'twitch.html');
 	end
 	get '/api/v1/youtube' do
 

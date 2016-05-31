@@ -1,25 +1,28 @@
-$(function(){
-	$(".rslides").responsiveSlides();
-	(function poll() {
-		$.ajax({
-		url: "https://api.twitch.tv/kraken/streams/bum1six3",
-		type: "GET",
-		success: function(data){
-			if (data["stream"] == null) {
-				$("#liveId").html("offline");
-			} else {
-				$("#liveId").html("live");
-				$("#liveId").click(function(){
-					window.location = "http://www.twitch.tv/bum1six3/embed";
-				});
-			}
-			console.log("polling");
-		},
-		dataType: "json",
-		complete: setTimeout(function() {poll()}, 5000),
-		timeout: 2000
-	})
-	})();
+//Asynchronous GET call
+function httpGetAsync(theUrl, callback){
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.onreadystatechange = function(){
+		if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+			callback(JSON.parse(xmlHttp.responseText));
+		}
+	}
+	xmlHttp.open("GET", theUrl, true);
+	xmlHttp.send(null);
+};
+
+var offline = false;
+
+$(document).ready(function(){
+	var information = httpGetAsync("https://api.twitch.tv/kraken/streams/bum1six3", function(response){
+		if (response["stream"] != null){
+				$('#currentgame').html(response["stream"]["game"]);
+				
+		} else {
+			$('#currentgame').html("offline");
+		}
+	});
+	
+
+	
+	
 });
-
-

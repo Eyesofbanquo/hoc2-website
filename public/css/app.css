@@ -1,0 +1,54 @@
+*{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+}
+
+body{
+	background-color:whitesmoke;
+}
+
+#bs-example-navbar-collapse-1 ul li:hover {
+	background-color:whitesmoke;
+}
+
+#top{
+	width:100%;
+	margin:auto;
+	padding-bottom:0px;
+	padding-left:0px;
+	padding-right:0px;
+}
+
+#middle{
+	top:0;
+	margin-top:0px;
+	height:720px;
+	padding:0px;
+	margin-bottom:0px;
+	padding:0px;
+}
+
+#bottom{
+	margin-top:0px;
+	padding:0px;
+	width:100%;
+	
+}
+
+/* Youtube page */
+#livestream {
+	width:300px;
+	margin:auto;
+}
+
+#player{
+	width: 100%;
+	height:100%;
+}
+
+@media (max-width: 500px){
+	#bottom{
+		background-color:aqua;
+	}
+}
