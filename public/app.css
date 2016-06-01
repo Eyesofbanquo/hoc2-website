@@ -1,0 +1,84 @@
+/* Global settings */
+*{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing: border-box;
+}
+
+
+body{
+	background-color:whitesmoke;
+}
+
+#navbar ul li:hover {
+	background-color:whitesmoke;
+}
+
+/* Twitch page */
+#top{
+	width:100%;
+	margin:auto;
+	padding-bottom:10px;
+	padding-left:0px;
+	padding-right:0px;
+}
+
+#top #toTwitch{
+	width:200px;
+	margin: 0 auto;
+}
+
+#middle{
+	top:0;
+	margin-top:0px;
+	height:720px;
+	padding:0px;
+	margin-bottom:0px;
+	padding:0px;
+}
+
+#bottom{
+	margin-top:0px;
+	padding:0px;
+	width:100%;
+	
+}
+
+
+#livestream {
+	margin:auto;
+}
+
+
+
+#player{
+	
+}
+
+
+@media (max-width: 1280px){
+	
+	#middle{
+		height: 500px;
+	}
+	#player{
+		width: 1280px;
+		height: 500px;
+	}
+}
+
+@media (max-width: 500px){
+	
+	#navbar{
+		background-color:aqua;
+	}
+	#bottom{
+		background-color:aqua;
+	}
+	
+	#player{
+		height:720px;
+		width: 1280px;
+	}
+	
+}

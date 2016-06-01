@@ -72,8 +72,8 @@ class HOC<Sinatra::Base
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
 		v
 	end
-	get '/index2' do
-		slim :index2
+	get 'challonge' do
+		send_file File.join(settings.public_folder, 'challonge.html');
 	end
 	post '/post' do
 		"I got #{params[:email]} from test app!"

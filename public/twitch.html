@@ -6,8 +6,8 @@
     <title>Bootswatch: Paper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
-				<link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="./bootstrap.css" media="screen">
+				<link rel="stylesheet" href="./app.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     
   </head>
@@ -29,10 +29,10 @@
 							
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="twitch.html">Twitch</a></li>
+									<li><a href="/">Home</a></li>
+									<li><a href="twitch">Twitch</a></li>
 									<li><a href="#">YouTube</a></li>
-									<li><a href="#">Challonge</a></li>
+									<li><a href="challonge">Challonge</a></li>
 								</ul>
 							</div>
 
@@ -42,6 +42,7 @@
 			
 			<div class="jumbotron" id="top">
 				<h1>Currently Playing: <em><span id="currentgame"></span></em></h1>
+				<p><a id="toTwitch" href="https://www.twitch.tv/bum1six3" class="btn btn-default">Watch on Twitch</a></p>
 			</div>
 			
 			<div class="jumbotron" id="middle">
@@ -54,12 +55,14 @@
         allowfullscreen="true">
     </iframe>
 				</div>
+				
 			
 			<div class="jumbotron" id="bottom">
 				<div id="pastbroadcasts">
 					<h1>Past Broadcasts</h1>
 					<p>You can catch the most recent streams from the House</p>
-					<p id="info"></p>
+					<p id="info">
+					</p>
 				</div>
 			</div>
 			
@@ -73,6 +76,6 @@
    <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
 			<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 			<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-   	<script src="js/script.js" type="text/javascript"></script>
+   	<script src="script.js" type="text/javascript"></script>
   </body>
 </html>
