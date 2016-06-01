@@ -28,7 +28,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	
+	var past_broadcasts = null;
 	//var data
 	$.ajax({
 		url: "https://api.twitch.tv/kraken/channels/bum1six3/videos?broadcasts=true&limit=10",
@@ -41,7 +41,8 @@ $(document).ready(function(){
 			$.each(array, function(index, val){
 				//if(val["self"] != null){
 					//$("#info").append(val["_links"] + " ");
-				$('#info').append(val["thumbnails"][0]["url"] + " ");
+				var thumbnail_size = val["thumbnails"][0]["url"];
+				$('#info').append("<img src = " + thumbnail_size.replace("thumb0-320x240.jpg", "thumb0-640x480.jpg") + "></img>");
 				//}
 				
 			});
