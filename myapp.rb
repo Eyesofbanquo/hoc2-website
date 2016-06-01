@@ -75,6 +75,9 @@ class HOC<Sinatra::Base
 	get '/challonge' do
 		send_file File.join(settings.public_folder, 'challonge.html');
 	end
+	get '/youtube' do
+		send_file File.join(settings.public_folder, 'youtube.html');
+	end
 	post '/post' do
 		"I got #{params[:email]} from test app!"
 	end

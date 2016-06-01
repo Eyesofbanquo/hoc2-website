@@ -1,3 +1,10 @@
+/*Palette
+dark - #000070
+light purp- #767FD3
+light blue- #66B8E2
+#00009B
+#00007c */
+
 /* Global settings */
 *{
 	box-sizing: border-box;
@@ -5,17 +12,39 @@
 	-webkit-box-sizing: border-box;
 }
 
-
-body{
-	background-color:whitesmoke;
+.carousel{
+	padding:0;
+	margin-top:65px;
+	width:100%;
 }
 
+#slide{
+	width:100%;
+	margin:auto;
+}
+
+/** Container properties **/
+.jumbotron{
+	display:block;
+
+	
+}
+
+.jumbotron h1{
+}
+
+body{
+	
+}
+
+/** Navigation properties */
 #navbar ul li:hover {
 	background-color:whitesmoke;
 }
 
 /* Twitch page */
 #top{
+	text-align:center;
 	width:100%;
 	margin:auto;
 	padding-bottom:10px;
@@ -30,8 +59,9 @@ body{
 
 #middle{
 	top:0;
-	margin-top:0px;
+	margin-top:100px;
 	height:720px;
+	width:100%;
 	padding:0px;
 	margin-bottom:0px;
 	padding:0px;
@@ -49,20 +79,53 @@ body{
 	margin:auto;
 }
 
-
-
 #player{
-	
+	width:100%;
+	margin-right:0px;
 }
 
 
+.thumbnail{
+	height:400px;
+	width: 640px;
+	margin:auto;
+}
+
+.thumbnail-title{
+	font-size: 16pt;
+	text-align:center;
+	width:auto;
+	margin:auto;
+}
+
+
+/* Youtube */
+#hypelights{
+	margin-top:100px;
+}
+
+.hypelight{
+	display:block;
+	width:800px;
+	height: 400px;
+	margin:auto;
+}
+
+#tsl{
+	background-color:#212121;
+}
+#ds3{
+	background-color:blueviolet;
+}
+
+/* Media queries */
 @media (max-width: 1280px){
 	
 	#middle{
 		height: 500px;
 	}
 	#player{
-		width: 1280px;
+		
 		height: 500px;
 	}
 }

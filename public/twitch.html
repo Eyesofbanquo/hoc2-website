@@ -3,18 +3,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootswatch: Paper</title>
+    <title>HOC: Twitch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="./bootstrap.css" media="screen">
 				<link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./bootstrap.css" media="screen">
+				<link rel="stylesheet" href="./lvish-bootstrap.css">
+			
+				
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     
   </head>
   <body>
 			
 			<!-- Navigation bar -->
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
        <div class="navbar-header">
 								 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="bs-example-navbar-collapse-1">
@@ -23,48 +26,53 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-								<a class="navbar-brand" href="#">House of Chaos</a>
+								<a class="navbar-brand" href="/">House of Chaos</a>
 								
 							</div>
 							
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li><a href="/">Home</a></li>
-									<li><a href="twitch">Twitch</a></li>
-									<li><a href="#">YouTube</a></li>
-									<li><a href="challonge">Challonge</a></li>
+									<li><a href="/twitch">Twitch</a></li>
+									<li><a href="/youtube">YouTube</a></li>
+									<li><a href="/challonge">Challonge</a></li>
 								</ul>
 							</div>
 
       </div>
     </div>
     <!--Navigation Bar -->
-			
-			<div class="jumbotron" id="top">
-				<h1>Currently Playing: <em><span id="currentgame"></span></em></h1>
-				<p><a id="toTwitch" href="https://www.twitch.tv/bum1six3" class="btn btn-default">Watch on Twitch</a></p>
-			</div>
+		<div class="container">
 			
 			<div class="jumbotron" id="middle">
 					<iframe id ="player"
         src="https://player.twitch.tv/?channel=bum1six3" 
-        height="720" 
-        width="1280" 
+        
         frameborder="0" 
         scrolling="no"
         allowfullscreen="true">
     </iframe>
 				</div>
+		
+			<div class="jumbotron" id="top">
+				<h1>Currently Playing: <em><span id="currentgame"></span></em></h1>
+				<p><a id="toTwitch" href="https://www.twitch.tv/bum1six3" class="btn btn-default">Watch on Twitch</a></p>
+			</div>
+			
+			
 				
 			
 			<div class="jumbotron" id="bottom">
 				<div id="pastbroadcasts">
 					<h1>Past Broadcasts</h1>
-					<p>You can catch the most recent streams from the House</p>
-					<p id="info">
+					<p>Watch the most recent stream right after it airs</p>
+					<p id="past_broadcasts">
+						<!-- This will contain the thumbnails for the stream -->
 					</p>
 				</div>
 			</div>
+			
+		</div>
 			
 
 	
