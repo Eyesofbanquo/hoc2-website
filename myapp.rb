@@ -72,7 +72,7 @@ class HOC<Sinatra::Base
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
 		v
 	end
-	get 'challonge' do
+	get '/challonge' do
 		send_file File.join(settings.public_folder, 'challonge.html');
 	end
 	post '/post' do
