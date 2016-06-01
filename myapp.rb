@@ -75,6 +75,9 @@ class HOC<Sinatra::Base
 	get '/index2' do
 		slim :index2
 	end
+	post '/post' do
+		"I got #{params[:email]} from test app!"
+	end
 end
 
 HOC.run!
