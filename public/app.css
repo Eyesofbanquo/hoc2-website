@@ -132,16 +132,5 @@ body{
 
 @media (max-width: 500px){
 	
-	#navbar{
-		background-color:aqua;
-	}
-	#bottom{
-		background-color:aqua;
-	}
-	
-	#player{
-		height:720px;
-		width: 1280px;
-	}
 	
 }
