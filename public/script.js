@@ -49,7 +49,7 @@ $(document).ready(function(){
 				var url = val["url"];
 				//alert(title);
 				var thumbnail = val["thumbnails"][0]["url"];
-				$('#past_broadcasts').append("<div id = \"jumbotron\"><h4 class=\"thumbnail-title\">" + title + "</h4><a href = " + url + "><img class=\"thumbnail\" src = " + thumbnail.replace("thumb0-320x240.jpg", "thumb0-1280x720.jpg") + " ></img></a></div>");
+				$('#past_broadcasts').append("<div id = \"jumbotron\"><h4 class=\"thumbnail-title\">" + title + "</h4><a href = " + url + "><img class=\"thumbnail\" src = " + thumbnail.replace("thumb0-320x240.jpg", "thumb0-1280x720.jpg") + " ></img></a></div><hr>");
 				
 				
 			});
