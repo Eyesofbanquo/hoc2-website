@@ -18,21 +18,38 @@ light blue- #66B8E2
 .icon-bar{
 	background-color:#2A9FD6;
 }
-/** Index
+#clickableWell {
+	width:100%;
+	height:100%;
+	
+	text-decoration:none;
+}
+/** 
 
 
+Index
 
 
 **/
+.new-container{
+	padding:0px;
+	margin:0px;
+	
+}
 .carousel{
+	position:fixed;
+	width:200px;
+	height:300px;
 	padding:0;
 	margin-top:65px;
 	width:100%;
+	
 }
 
 #slide{
 	width:100%;
 	margin:auto;
+
 }
 
 /** Container properties **/
@@ -54,13 +71,27 @@ body{
 	background-color:whitesmoke;
 }
 
-/* Twitch page 
+/* 
 
 
-
+							Twitch page 
 
 
 */
+#floatingAction{
+	position:fixed;
+	left:0;
+	color:white;
+	margin-top:100px;
+	opacity:0.8;
+	visibility:hidden;
+}
+#floatingAction:hover{
+	opacity:1.0;
+}
+.alert.alert-success{
+	background-color:#2A9FD6;
+}
 #top{
 	text-align:center;
 	width:100%;
@@ -111,25 +142,23 @@ body{
 }
 
 
-.thumbnail{
-	
-	height:100%;
-	width:80%;
-	margin:auto;
-	
-}
-
-.thumbnail-title{
-	z-index:1;
-	font-size: 12pt;
+#thumbnail-title{
+	font-size:10pt;
 	font-weight:bold;
-	width:auto;
-	
 	text-align:center;
 }
+#twitch-button{
+	width:200px;
+	margin:auto;
+}
+
 
 
 /* Youtube
+
+
+
+
 
 
 
@@ -143,7 +172,7 @@ body{
 	margin-top:100px;
 }
 
-.hypelight{
+.highlight{
 	display:block;
 	width:100%;
 	height:600px;
@@ -157,6 +186,10 @@ body{
 	background-color:blueviolet;
 }
 
+.well:hover{
+	background-color:#2A9FD6;
+	color:white;
+}
 /* Media queries 
 
 
@@ -180,7 +213,7 @@ body{
 /* Desktop/Laptop small screen */
 @media (max-width: 1280px){
 	
-
+	
 }
 
 /* iPhone 6s Plus */
@@ -199,7 +232,7 @@ body{
 	}
 	
 	/* YouTube */
-	.hypelight{
+	.highlight{
 	display:block;
 	width:100%;
 	height: 300px;
@@ -228,7 +261,8 @@ body{
 	}
 	
 	/* YouTube */
-	.hypelight{
+	.highlight{
+	
 	display:block;
 	width:100%;
 	height: 300px;
@@ -258,7 +292,7 @@ body{
 	}
 	
 	/* YouTube */
-	.hypelight{
+	.highlight{
 	display:block;
 	width:100%;
 	height: 200px;
@@ -266,6 +300,7 @@ body{
 }
 	.panel-body{
 		width:100%;
+		
 		
 	}
 

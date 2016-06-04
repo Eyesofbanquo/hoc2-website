@@ -13,10 +13,17 @@
 			
 				
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+			
     
   </head>
   <body>
-			
+			<div id="floatingAction">
+				
+				<div class="alert alert-dismissible alert-success" >
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>Past Broadcasts</strong> Click an image to go to Twitch page.
+				</div>
+			</div>
 			<!-- Navigation bar -->
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -43,7 +50,7 @@
       </div>
     </div>
     <!--Navigation Bar -->
-		<div class="container">
+		<div class="container" id="content">
 			
 			<div class="jumbotron" id="middle">
 					<iframe id ="player"
@@ -67,13 +74,23 @@
 				<div id="pastbroadcasts">
 					<h1>Past Broadcasts</h1>
 					<p>Watch the most recent stream right after it airs</p>
-					<p id="past_broadcasts">
+					<p id="">
 						<!-- This will contain the thumbnails for the stream -->
+						<div class = "row">
+							
+						</div><!-- row -->
 					</p>
 				</div>
 			</div>
 			
-		</div>
+			<div class="jumbotron" >
+					<div class="well" style="width:100px; margin:auto;">
+						<p style="font-size:8pt;">Check out more on <strong>Twitch</strong></p>
+						</div>
+					
+			</div> <!-- Check out more content from YouTube Jumbotron -->
+			
+		</div><!-- Container -->
 			
 
 	
@@ -86,5 +103,28 @@
 			<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 			<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>
    	<script src="script.js" type="text/javascript"></script>
+			<script type="text/javascript">
+				//The target variable is the position in the page we must hit before enabling scroll specific behavior
+				var target = $("#top").offset().top,
+								timeout = null;
+				$(window).scroll(function(){
+					//Checking and setting null means this runs only one time per scroll so this prevents any form of spamming
+					if (!timeout){
+						timeout = setTimeout(function(){
+							
+							clearTimeout(timeout);
+							timeout = null;
+							if ($(window).scrollTop() >= target){
+								//$("#floatingAction").css("visibility", "visible");
+								//$("floatingAction").css("z-index", "200");
+							//$("#floatingAction").css('opacity', '0.6');
+							} else {
+							//	$("#floatingAction").css("visibility", "hidden");
+							}
+						}, 250);
+					}
+				});
+			
+			</script>
   </body>
 </html>

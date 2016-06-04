@@ -1,9 +1,9 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
-    <title>Bootswatch: Paper</title>
+    <title>Challonge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 			
@@ -13,7 +13,19 @@
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 			<script src='https://raw.github.com/padolsey/jQuery-Plugins/master/cross-domain-ajax/jquery.xdomainajax.js'></script>
 			<!-- Challonge api -->
-			<script src="https://raw.githubusercontent.com/challonge/challonge-jquery-plugin/master/jquery.challonge.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+			
+			<script type="text/javascript">
+				angular.module('app', []);
+			</script>
+			<script type="text/javascript">
+				angular.module('app').component('monkeyTime', {
+					template: 'Hello, {{$ctrl.user}}',
+					controller: function FuckBoyController(){
+						this.user = 'yes';
+				}
+				});
+			</script>
     
   </head>
   <body>
@@ -51,11 +63,12 @@
 			
 			<div id="container">
 				<form class="form-horizontal" action="https://guarded-wave-29413.herokuapp.com/post" method="post" accept-charset="utf-8">
-				<fieldst>
+				<fieldset>
 					<div class="form-group">
       <label  for="inputEmail" class="col-lg-2 control-label">Email</label>
       <div class="col-lg-10">
         <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
+							<monkey-time class="ng-isolate-scope"></monkey-time>
       </div>
     </div>
 					
@@ -65,7 +78,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
-				</fieldst>
+				</fieldset>
 			</form>
 			</div>
 			<div id="jumbotron">
