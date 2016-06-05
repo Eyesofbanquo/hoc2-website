@@ -21,7 +21,7 @@
 			<script src="https://raw.githubusercontent.com/challonge/challonge-jquery-plugin/master/jquery.challonge.js"></script>
     
   </head>
-  <body>
+  <body style="margin-right:10px;margin-left:10px;">
 			
 			<!-- Navigation bar -->
     <div class="navbar navbar-default navbar-fixed-top">
@@ -49,8 +49,9 @@
       </div> <!-- navigation bar container -->
     </div> <!--Navigation Bar -->
 			
-			<div class="container">
-				
+			<!-- <div class="container">-->
+			<div class="row">
+			<div class="col-sm-6 col-md-6">
 				<div class="jumbotron" id="hypelights">
 					<h1></h1>
 					<div class="panel panel-danger">
@@ -58,13 +59,22 @@
     			<h3 class="panel-title" style="font-size:16pt;text-align:center;">Highlights</h3>
   				</div>
   				<div class="panel-body">
-    			<iframe class="highlight" width="560" height="315" src="https://www.youtube.com/embed/Xi7us50tC-s" frameborder="0" allowfullscreen></iframe>
+    			<div id="blueimp-compilations" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-displayer blueimp-gallery-playing">
+								<div class="slides">
+								</div>
+								<h3 class="title"></h3>
+								<a class="prev">‹</a>
+								<a class="next">›</a>
+								<a class="play-pause"></a>
+								<ol class="indicator"></ol>
+							</div> <!-- Carousel -->
   				</div>
 					</div> 
-			</div><!-- Overwatch:Highlights jumbotron -->
-				<hr>
+				</div><!-- Overwatch:Highlights jumbotron -->
+			</div> <!-- column container -->
 				
-				<div class="jumbotron" id="savageland">
+			<div class="col-sm-6 col-md-6">
+				<div class="jumbotron" id="hypelights">
 						<h1></h1>
 						<div class="panel panel-danger">
   				<div class="panel-heading">
@@ -83,21 +93,33 @@
   				</div>
 					</div> 
 				</div> <!-- TSL jumbotron -->
-				<hr>
-				<div class="jumbotron" id="ds3">
+			</div><!-- Column container -->
+				
+			</div>	<!-- row container -->
+			<div class="row">
+				<div class="col-sm-6 col-md-6">
+					<div class="jumbotron" id="ds3">
 						<h1></h1>
 						<div class="panel panel-danger">
-  				<div class="panel-heading">
-    			<h3 class="panel-title" style="font-size:16pt;text-align:center;">Dark Souls:Highlights</h3>
-  				</div>
-  				<div class="panel-body">
-    			<iframe class="highlight" width="560" height="315" src="https://www.youtube.com/embed/Xi7us50tC-s" frameborder="0" allowfullscreen></iframe>
-  				</div>
-					</div> 
-				</div> <!-- Dark Souls jumbotron -->
-				<hr>
-				
-				<div class="jumbotron">
+							<div class="panel-heading">
+								<h3 class="panel-title" style="font-size:16pt;text-align:center;">Dark Souls:Highlights</h3>
+							</div>
+							<div class="panel-body">
+								<div id="blueimp-compilations" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-displayer blueimp-gallery-playing">
+								<div class="slides">
+								</div>
+								<h3 class="title"></h3>
+								<a class="prev">‹</a>
+								<a class="next">›</a>
+								<a class="play-pause"></a>
+								<ol class="indicator"></ol>
+							</div> <!-- Carousel -->
+							</div>
+						</div> 
+					</div> <!-- Dark Souls jumbotron -->
+				</div><!-- Column container -->
+				<div class="col-sm-6 col-md-6">
+					<div class="jumbotron">
 					<h1></h1>
 					<div class="panel panel-danger">
   				<div class="panel-heading">
@@ -118,6 +140,13 @@
 					</div> 
 					
 				</div><!-- Compilation jumbotron -->
+				</div><!-- Column container -->
+			
+			</div><!-- row container -->
+				
+				<hr>
+				
+				
 									
 				
 				
@@ -127,7 +156,7 @@
 					</div>
 					
 					</div> <!-- Check out more content from YouTube Jumbotron -->
-			</div><!-- container -->
+		<!--	</div><!-- container -->
 			
 			
 			
