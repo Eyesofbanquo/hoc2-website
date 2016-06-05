@@ -41,27 +41,7 @@ $(document).ready(function(){
 	
 	var past_broadcasts = null;
 	//var data
-	$.ajax({
-		url: "https://api.twitch.tv/kraken/channels/bum1six3/videos?broadcasts=true&limit=12",
-		dataType: "json",
-		success: function(data){
-			
-			var array = data["videos"]
-			$.each(array, function(index, val){
-				
-				//if(val["self"] != null){
-					//$("#info").append(val["_links"] + " ");
-				var title = val["title"];
-				var url = val["url"];
-				//alert(title);
-				var thumbnail = val["thumbnails"][0]["url"];
-				$('.row').append("<div class = \"col-sm-6 col-md-6\"><div class =\"thumbnail\">"  + "<img class=\"thumbnail2\" src = " + thumbnail.replace("thumb0-320x240.jpg", "thumb0-1280x800.jpg") + " ></img>" + "<div class=\"caption\"><h3 id=\"thumbnail-title\">"+title+"</h3>" + "<p id=\"twitch-button\"><a href=" + "\"url\"" + "class=\"btn btn-primary\" role=\"button\">Watch on Twitch</a></p>" +
-																					"</div></div></div>");
-				
-				
-			});
-		}
-	});
+
 	var current = 0;
 	
 	
