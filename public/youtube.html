@@ -90,16 +90,17 @@
   				</div>
 					</div> 
 			</div><!-- Column container -->
-				
 			</div>	<!-- row container -->
+			
+			<div class="row">
 				<div class="col-sm-6 col-md-6">
 						<h1></h1>
 						<div class="panel panel-danger">
 							<div class="panel-heading">
-								<h3 class="panel-title" style="font-size:16pt;text-align:center;">Dark Souls:Highlights</h3>
+								<h3 class="panel-title" style="font-size:16pt;text-align:center;">SF5 Online: Highlights</h3>
 							</div>
 							<div class="panel-body">
-								<div id="blueimp-compilations" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-displayer blueimp-gallery-playing">
+								<div id="blueimp-online" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-displayer blueimp-gallery-playing">
 								<div class="slides">
 								</div>
 								<h3 class="title"></h3>
@@ -111,14 +112,14 @@
 							</div>
 						</div> 
 				</div><!-- Column container -->
-				<div class="col-sm-6 col-md-6" >
-					<h1></h1>
-					<div class="panel panel-danger">
+				<div class="col-sm-6 col-md-6">
+						<h1></h1>
+						<div class="panel panel-danger">
   				<div class="panel-heading">
-    			<h3 class="panel-title" style="font-size:16pt;text-align:center;">Compilations</h3>
+    			<h3 class="panel-title" style="font-size:16pt;text-align:center;">Smash 4: Highlights</h3>
   				</div>
   				<div class="panel-body">
-    			<div id="blueimp-compilations" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-displayer blueimp-gallery-playing">
+    			<div id="blueimp-smash" class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-displayer blueimp-gallery-playing">
 								<div class="slides">
 								</div>
 								<h3 class="title"></h3>
@@ -127,17 +128,11 @@
 								<a class="play-pause"></a>
 								<ol class="indicator"></ol>
 							</div> <!-- Carousel -->
-				
-  				</div><!-- Panel Body-->
+  				</div>
 					</div> 
-					
-				</div><!-- Column container -->
+			</div><!-- Column container -->
 			
 			</div><!-- row container -->
-				
-				<hr>
-				
-				
 									
 				
 				
@@ -176,6 +171,65 @@
 			<script type="text/javascript">
 			$(function(){
 				 'use strict'
+					var smash_options ={
+						container: '#blueimp-smash',
+						carousel: true
+					};
+					
+					blueimp.Gallery([
+					{
+      title: '',
+      href: 'https://www.youtube.com/watch?v=qF2ry4EmBYY',
+      type: 'text/html',
+						youtube: 'qF2ry4EmBYY',
+      poster: 'https://img.youtube.com/vi/qF2ry4EmBYY/maxresdefault.jpg'
+    },
+					{
+						title: '',
+						href: 'https://www.youtube.com/watch?v=7JEPKVoZSGU',
+						type: 'text/html',
+						youtube: '7JEPKVoZSGU',
+						poster: 'https://img.youtube.com/vi/7JEPKVoZSGU/maxresdefault.jpg'
+						
+					},
+					{
+						title: '',
+						href: 'https://www.youtube.com/watch?v=EThSibqPMq8',
+						type: 'text/html',
+						youtube: 'EThSibqPMq8',
+						poster: 'https://img.youtube.com/vi/EThSibqPMq8/maxresdefault.jpg'
+					}
+				], smash_options); /*Smash 4 Options*/ 
+					var online_options ={
+						container: '#blueimp-online',
+						carousel: true
+					};
+					
+					blueimp.Gallery([
+					{
+      title: '',
+      href: 'https://www.youtube.com/watch?v=X8OHsChZ3iY',
+      type: 'text/html',
+						youtube: 'X8OHsChZ3iY',
+      poster: 'https://img.youtube.com/vi/X8OHsChZ3iY/maxresdefault.jpg'
+    },
+					{
+						title: '',
+						href: 'https://www.youtube.com/watch?v=VYZLS5Oy2yM',
+						type: 'text/html',
+						youtube: 'VYZLS5Oy2yM',
+						poster: 'https://img.youtube.com/vi/VYZLS5Oy2yM/maxresdefault.jpg'
+						
+					},
+					{
+						title: '',
+						href: 'https://www.youtube.com/watch?v=VwrG3rJVpEM',
+						type: 'text/html',
+						youtube: 'VwrG3rJVpEM',
+						poster: 'https://img.youtube.com/vi/VwrG3rJVpEM/maxresdefault.jpg'
+					}
+				], online_options); /* SF5 Online Carousel */
+					
 					var tsl_options = {
 						container: '#blueimp-tsl',
 						carousel: true,
@@ -233,7 +287,7 @@
 						youtube: 'Xi7us50tC-s',
 						poster: 'https://img.youtube.com/vi/Xi7us50tC-s/maxresdefault.jpg'
 					}
-				], compilation_options);
+				], compilation_options); /*Compilation options */
 				
 				
 			}); /* End of function */
