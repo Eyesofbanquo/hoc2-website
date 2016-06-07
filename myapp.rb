@@ -73,7 +73,7 @@ class HOC<Sinatra::Base
 		v
 	end
 	get '/api/v1/challonge' do
-		match_information = RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
+		match_information = JSON.parse RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
 		
 		match_information
 	end
