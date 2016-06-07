@@ -72,7 +72,7 @@ class HOC<Sinatra::Base
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
 		v
 	end
-	get 'api/v1/test1040/challonge' do
+	get '/api/v1/challonge' do
 		match_information = RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
 		
 		match_information
