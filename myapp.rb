@@ -70,13 +70,13 @@ class HOC<Sinatra::Base
 			videos[i] = TwitchBroadcast.new(twitch_highlights["videos"][i]["preview"], twitch_highlights["videos"][i]["title"], twitch_highlights["videos"][i]["description"], twitch_highlights["videos"][i]["url"].split("https://www.twitch.tv/bum1six3/v/")[1])
 		end
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
-		v.to_json
+		v
 	end
 	get '/api/v1/challonge' do
 		content_type :json
 		match_information = RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
 		
-		match_information.to_json
+		match_information
 	end
 	get '/challonge' do
 		send_file File.join(settings.public_folder, 'challonge.html');
