@@ -58,7 +58,7 @@ class HOC<Sinatra::Base
 		send_file File.join(settings.public_folder, 'twitch.html');
 	end
 	get '/api/v1/youtube' do
-
+		content_type :json
 		twitch = JSON.parse(RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3')
 
 		#Try to get past broadcast videos
@@ -70,12 +70,13 @@ class HOC<Sinatra::Base
 			videos[i] = TwitchBroadcast.new(twitch_highlights["videos"][i]["preview"], twitch_highlights["videos"][i]["title"], twitch_highlights["videos"][i]["description"], twitch_highlights["videos"][i]["url"].split("https://www.twitch.tv/bum1six3/v/")[1])
 		end
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
-		v
+		v.to_json
 	end
 	get '/api/v1/challonge' do
-		match_information = JSON.parse RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
+		content_type :json
+		match_information = RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
 		
-		match_information
+		match_information.to_json
 	end
 	get '/challonge' do
 		send_file File.join(settings.public_folder, 'challonge.html');
