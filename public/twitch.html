@@ -16,7 +16,7 @@
 			
     
   </head>
-  <body style="margin-left:10px; margin-right:10px;">
+  <body>
 			<div id="floatingAction">
 				
 				<div class="alert alert-dismissible alert-success" >
@@ -43,14 +43,12 @@
 									<li><a href="/">Home</a></li>
 									<li><a href="/twitch">Twitch</a></li>
 									<li><a href="/youtube">YouTube</a></li>
-									<li><a href="/challonge">Challonge</a></li>
 								</ul>
 							</div>
 
       </div>
-    </div>
-    <!--Navigation Bar -->
-		<!-- <div class="container" id="content">-->
+    </div> <!--Navigation Bar -->
+		<!--<div class="container" id="content"> -->
 			
 			<div class="jumbotron" id="middle">
 					<iframe id ="player"
@@ -90,7 +88,7 @@
 					
 			</div> <!-- Check out more content from YouTube Jumbotron -->
 			
-		<!-- </div><!-- Container -->
+	<!--	</div><!-- Container -->
 			
 
 	
@@ -119,7 +117,7 @@
 				var url = val["url"];
 				//alert(title);
 				var thumbnail = val["thumbnails"][0]["url"];
-				$('.row').append("<div class = \"col-sm-6 col-md-6\"><div class =\"thumbnail\">"  + "<img class=\"thumbnail2\" src = " + thumbnail.replace("thumb0-320x240.jpg", "thumb0-1280x800.jpg") + " ></img>" + "<div class=\"caption\"><h3 id=\"thumbnail-title\">"+title+"</h3>" + "<p id=\"twitch-button\"><a href=" + "\"url\"" + "class=\"btn btn-primary\" role=\"button\">Watch on Twitch</a></p>" +
+				$('.row').append("<div class = \"col-sm-6 col-md-6\"><div class =\"thumbnail\">"  + "<img class=\"thumbnail2\" src = " + thumbnail.replace("thumb0-320x240.jpg", "thumb0-1280x800.jpg") + " ></img>" + "<div class=\"caption\"><h3 id=\"thumbnail-title\">"+title+"</h3>" + "<p id=\"twitch-button\"><a href=" + "\""+ url +"\"" + "class=\"btn btn-primary\" role=\"button\">Watch on Twitch</a></p>" +
 																					"</div></div></div>");
 				
 				

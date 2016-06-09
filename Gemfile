@@ -5,7 +5,9 @@ ruby '2.2.4'
 
 # gem "rails"
 gem "rack"
+gem "rake"
 gem "sinatra"
 gem "rest-client"
 gem "slim"
 gem "rack-flash-session"
+gem "dm-postgres-adapter"
