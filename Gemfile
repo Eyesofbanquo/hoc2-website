@@ -11,4 +11,5 @@ gem "rest-client"
 gem "slim"
 gem "rack-flash-session"
 gem "dm-postgres-adapter"
-
+gem "rufus-scheduler"
+gem "data_mapper"
