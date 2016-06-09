@@ -5,7 +5,6 @@ require 'open-uri'
 require 'slim'
 require 'slim/include'
 require 'rest-client'
-require 'sinatra/cross_origin'
 require 'rufus-scheduler'
 require 'data_mapper'
 
