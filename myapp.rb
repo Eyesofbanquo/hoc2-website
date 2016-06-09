@@ -10,16 +10,16 @@ require 'rufus-scheduler'
 require 'data_mapper'
 
 
-DataMapper.setup(:default, 'postgres://stark:20400112@localhost/hoc')
+#DataMapper.setup(:default, 'postgres://stark:20400112@localhost/hoc')
 
-class Device
-	include DataMapper::Resource
-	property :id,	Serial, :key => true
-	property :device,	String
-end
+#class Device
+#	include DataMapper::Resource
+#	property :id,	Serial, :key => true
+#	property :device,	String
+#end
 
-DataMapper.finalize
-Device.auto_upgrade!
+#DataMapper.finalize
+#Device.auto_upgrade!
 
 configure do
   enable :cross_origin
@@ -105,10 +105,10 @@ class HOC<Sinatra::Base
 	post '/post' do
 		"I got #{params[:email]} from test app!"
 	end
-	post '/database' do
-		@device = Device.new(:device => params[:id])
-		@device.save
-	end
+#	post '/database' do
+#		@device = Device.new(:device => params[:id])
+#		@device.save
+#end
 end
 
 HOC.run!
