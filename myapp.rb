@@ -21,9 +21,9 @@ require 'data_mapper'
 #DataMapper.finalize
 #Device.auto_upgrade!
 
-configure do
+#configure do
   #enable :cross_origin
-end
+#end
 
 class TwitchBroadcast
 	attr_reader :video_image, :video_title, :video_description, :url
