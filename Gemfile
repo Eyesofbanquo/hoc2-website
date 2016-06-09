@@ -11,4 +11,4 @@ gem "rest-client"
 gem "slim"
 gem "rack-flash-session"
 gem "dm-postgres-adapter"
-gem "sinatra/cross_origin"
+
