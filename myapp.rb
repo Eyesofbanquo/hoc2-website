@@ -22,7 +22,7 @@ require 'data_mapper'
 #Device.auto_upgrade!
 
 configure do
-  enable :cross_origin
+  #enable :cross_origin
 end
 
 class TwitchBroadcast
@@ -55,8 +55,8 @@ end
 
 class HOC<Sinatra::Base
 	#Need to set the first two so that I can reach my Sinatra endpoints from AngularJS
-	register Sinatra::CrossOrigin
-	set :protection, false
+	#register Sinatra::CrossOrigin
+	#set :protection, false
 	#For the use of static pages
 	set :static, true
 	#To change the public directory
@@ -92,7 +92,7 @@ class HOC<Sinatra::Base
 	end
 	#Challonge end point to get player data as JSON
 	get '/api/v1/challonge_player/:id' do
-		cross_origin
+		#cross_origin
 		id = params[:id]
 		
 		player_information = RestClient.get "https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/participants/#{id.to_str}.json"
