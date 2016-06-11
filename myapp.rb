@@ -96,8 +96,9 @@ class HOC<Sinatra::Base
 		total_videos = twitch_highlights["videos"].length
 		videos = Array.new
 		for i in 0...total_videos
-		#videos[i] = twitch_highlights["videos"][i]["preview"]
-			videos[i] = TwitchBroadcast.new(twitch_highlights["videos"][i]["preview"], twitch_highlights["videos"][i]["title"], twitch_highlights["videos"][i]["description"], twitch_highlights["videos"][i]["url"].split("https://www.twitch.tv/bum1six3/v/")[1])
+			upgradeQuality = (twitch_highlights["videos"][i]["preview"])
+			upgradeQuality["-320x240.jpg"] = "-1920x1080.jpg"
+			videos[i] = TwitchBroadcast.new(upgradeQuality, twitch_highlights["videos"][i]["title"], twitch_highlights["videos"][i]["description"], twitch_highlights["videos"][i]["url"].split("https://www.twitch.tv/bum1six3/v/")[1])
 		end
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
 		v
