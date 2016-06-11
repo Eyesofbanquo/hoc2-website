@@ -11,6 +11,8 @@ require 'data_mapper'
 
 #DataMapper.setup(:default, 'postgres://stark:20400112@localhost/hoc')
 
+#Uncomment this so that I can speak to my database
+#
 #class Device
 #	include DataMapper::Resource
 #	property :id,	Serial, :key => true
@@ -20,6 +22,7 @@ require 'data_mapper'
 #DataMapper.finalize
 #Device.auto_upgrade!
 
+#Uncomment this so that the server will be able to speak to javascript
 #configure do
   #enable :cross_origin
 #end
@@ -35,6 +38,8 @@ class TwitchBroadcast
 	end
 	
 end
+
+
 
 
 
@@ -82,7 +87,24 @@ class HOC<Sinatra::Base
 		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
 		v
 	end
+	#Twitch past broadcast endpoint
+	get '/api/v1/twitch' do
+		twitch = JSON.parse(RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3')
+
+		#Try to get past broadcast videos
+		twitch_highlights = JSON.parse RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3/videos', {:params => {:limit => '20', :broadcasts => 'true'}}
+		total_videos = twitch_highlights["videos"].length
+		videos = Array.new
+		for i in 0...total_videos
+		#videos[i] = twitch_highlights["videos"][i]["preview"]
+			videos[i] = TwitchBroadcast.new(twitch_highlights["videos"][i]["preview"], twitch_highlights["videos"][i]["title"], twitch_highlights["videos"][i]["description"], twitch_highlights["videos"][i]["url"].split("https://www.twitch.tv/bum1six3/v/")[1])
+		end
+		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
+		v
+	end
+	
 	#Challonge end point to get match data as a JSON file
+	#
 	get '/api/v1/challonge' do
 		cross_origin
 		match_information = RestClient.get 'https://eyesofbanquo:lli6e86AWtO5K1H3tXVevzbAIPz8ytsCwjP6LFVJ@api.challonge.com/v1/tournaments/test1040/matches.json'
@@ -90,6 +112,7 @@ class HOC<Sinatra::Base
 		matches.to_json
 	end
 	#Challonge end point to get player data as JSON
+	#
 	get '/api/v1/challonge_player/:id' do
 		#cross_origin
 		id = params[:id]
