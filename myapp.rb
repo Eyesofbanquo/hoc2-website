@@ -9,7 +9,7 @@ require 'rufus-scheduler'
 require 'data_mapper'
 
 
-DataMapper.setup(:default, 'postgres://tvafkumbxjmpdi:1MIo5PgYGfgYRWj-ss48Ls2gvM@ec2-50-19-227-171.compute-1.amazonaws.com:5432/db8b8bp63g89t')
+DataMapper.setup(:default, ENV['DATABASE_URL'])
 
 #Uncomment this so that I can speak to my database
 #
@@ -20,7 +20,7 @@ class Device
 end
 
 DataMapper.finalize
-Device.auto_migrate!
+Device.auto_upgrade!
 
 #Uncomment this so that the server will be able to speak to javascript
 #configure do
@@ -85,7 +85,7 @@ class HOC<Sinatra::Base
 	set :static, true
 	#To change the public directory
 	set :public_folder, File.dirname(__FILE__) + '/public'
-	#Home
+	
 	get '/' do
 		send_file File.join(settings.public_folder, 'index.html');
 	end
