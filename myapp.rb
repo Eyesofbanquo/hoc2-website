@@ -182,7 +182,7 @@ class HOC<Sinatra::Base
 		"I got #{params[:email]} from test app!"
 	end
 	post '/database' do
-		@device = Device.new(:device => "dam")
+		@device = Device.new(:device => "#{params[:id]}")
 		@device.save
 		
 	end
