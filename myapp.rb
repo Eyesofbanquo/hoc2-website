@@ -9,7 +9,7 @@ require 'rufus-scheduler'
 require 'data_mapper'
 
 
-DataMapper.setup(:default, ENV['DATABASE_URL'])
+DataMapper.setup(:default, 'postgres://tvafkumbxjmpdi:1MIo5PgYGfgYRWj-ss48Ls2gvM@ec2-50-19-227-171.compute-1.amazonaws.com:5432/db8b8bp63g89t')
 
 #Uncomment this so that I can speak to my database
 #
