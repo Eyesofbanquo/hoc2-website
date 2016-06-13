@@ -16,10 +16,10 @@ DataMapper.setup(:default, 'postgres://tvafkumbxjmpdi:1MIo5PgYGfgYRWj-ss48Ls2gvM
 class Device
 	include DataMapper::Resource
 	property :id,	Serial, :key => true
-	property :device,	String
+	property :device,	Text
 end
 
-DataMapper.finalize.auto_upgrade!
+DataMapper.finalize.auto_migrate!
 #Device.auto_migrate!
 
 #Uncomment this so that the server will be able to speak to javascript
