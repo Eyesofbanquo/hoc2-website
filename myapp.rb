@@ -19,8 +19,8 @@ class Device
 	property :device,	String
 end
 
-DataMapper.finalize
-Device.auto_upgrade!
+DataMapper.finalize.auto_migrate!
+#Device.auto_migrate!
 
 #Uncomment this so that the server will be able to speak to javascript
 #configure do
