@@ -19,7 +19,7 @@ class Device
 	property :device,	String
 end
 
-DataMapper.finalize.auto_migrate!
+DataMapper.finalize.auto_upgrade!
 #Device.auto_migrate!
 
 #Uncomment this so that the server will be able to speak to javascript
@@ -182,7 +182,7 @@ class HOC<Sinatra::Base
 		"I got #{params[:email]} from test app!"
 	end
 	post '/database' do
-		@device = Device.new(:device => "#{params[:id]}")
+		@device = Device.new(:device => "#{params[:id].to_str}")
 		@device.save
 		
 	end
