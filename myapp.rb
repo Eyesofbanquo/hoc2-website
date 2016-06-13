@@ -182,10 +182,10 @@ class HOC<Sinatra::Base
 		"I got #{params[:email]} from test app!"
 	end
 	post '/database' do
-		@device = Device.new(:device => params[:id].to_str)
+		@device = Device.new(:device => params[:id])
 		@device.save #if Device.count(:device=>params[:id]) == 0
-		"success"
-end
+		
+	end
 end
 
 HOC.run!
