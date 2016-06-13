@@ -9,18 +9,18 @@ require 'rufus-scheduler'
 require 'data_mapper'
 
 
-#DataMapper.setup(:default, 'postgres://stark:20400112@localhost/hoc')
+DataMapper.setup(:default, 'postgres://tvafkumbxjmpdi:1MIo5PgYGfgYRWj-ss48Ls2gvM@ec2-50-19-227-171.compute-1.amazonaws.com:5432/db8b8bp63g89t')
 
 #Uncomment this so that I can speak to my database
 #
-#class Device
-#	include DataMapper::Resource
-#	property :id,	Serial, :key => true
-#	property :device,	String
-#end
+class Device
+	include DataMapper::Resource
+	property :id,	Serial, :key => true
+	property :device,	String
+end
 
-#DataMapper.finalize
-#Device.auto_upgrade!
+DataMapper.finalize
+Device.auto_migrate!
 
 #Uncomment this so that the server will be able to speak to javascript
 #configure do
@@ -181,10 +181,10 @@ class HOC<Sinatra::Base
 	post '/post' do
 		"I got #{params[:email]} from test app!"
 	end
-#	post '/database' do
-#		@device = Device.new(:device => params[:id])
-#		@device.save
-#end
+	post '/database' do
+		@device = Device.new(:device => params[:id])
+		@device.save if Device.count(:device=>params[:id]) == 0
+end
 end
 
 HOC.run!
