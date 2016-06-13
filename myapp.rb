@@ -184,6 +184,7 @@ class HOC<Sinatra::Base
 	post '/database' do
 		@device = Device.new(:device => params[:id].to_str)
 		@device.save #if Device.count(:device=>params[:id]) == 0
+		"success"
 end
 end
 
