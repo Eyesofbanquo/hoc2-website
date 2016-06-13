@@ -27,6 +27,9 @@ require 'data_mapper'
   #enable :cross_origin
 #end
 
+
+
+
 class TwitchBroadcast
 	attr_reader :video_image, :video_title, :video_description, :url
 	def initialize(img,title,description, url)
@@ -39,6 +42,23 @@ class TwitchBroadcast
 	
 end
 
+class YouTubePlaylist
+	attr_reader :title, :image, :id
+	def initialize(title,img,id)
+		@title = title
+		@image = img
+		@id = id
+	end
+end
+
+class YouTubeVideo
+	attr_reader :title, :image, :id
+	def initialize(title,img,id)
+		@title = title
+		@image = img
+		@id = id
+	end
+end
 
 
 
@@ -72,24 +92,57 @@ class HOC<Sinatra::Base
 	get '/twitch' do
 		send_file File.join(settings.public_folder, 'twitch.html');
 	end
+	
 	get '/api/v1/youtube' do
 		content_type :json
-		twitch = JSON.parse(RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3')
-
-		#Try to get past broadcast videos
-		twitch_highlights = JSON.parse RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3/videos', {:params => {:limit => '5', :broadcasts => 'true'}}
-		total_videos = twitch_highlights["videos"].length
-
-		videos = Array.new
-		for i in 0...total_videos
-			videos[i] = TwitchBroadcast.new(twitch_highlights["videos"][i]["preview"], twitch_highlights["videos"][i]["title"], twitch_highlights["videos"][i]["description"], twitch_highlights["videos"][i]["url"].split("https://www.twitch.tv/bum1six3/v/")[1])
+		page = params[:page]
+		youtube_api_key = "AIzaSyCX9srp3Wu-yoJVU6JjmBkQ_IYvhFqCAXo"
+		#getting the youtube id from the channel. If the id isn't your own then you won't be able to see it on YouTube's page so you must request for it
+		channel_info = JSON.parse RestClient.get "https://www.googleapis.com/youtube/v3/channels", {:params => {:part => "snippet, contentDetails", :forUsername => "Bum1six3", :key => "#{youtube_api_key}"}}
+		playlist_id = channel_info["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+		#puts playlist_id
+		videos = JSON.parse RestClient.get "https://www.googleapis.com/youtube/v3/playlistItems", {:params => {:part=> "snippet", :key => "#{youtube_api_key}", :playlistId => "#{playlist_id}", :pageToken => "#{page}"}}
+		
+		nextPage = videos["nextPageToken"]
+		page = nextPage
+		#puts nextPage
+		video_items = videos["items"]
+	
+		videos_array = Array.new
+		
+		for i in 0...video_items.length
+			videos_array[i] = YouTubeVideo.new(video_items[i]["snippet"]["title"], video_items[i]["snippet"]["thumbnails"]["maxres"]["url"], video_items[i]["snippet"]["resourceId"]["videoId"])
 		end
-		v = videos.collect{ |item| {:image_url => item.video_image, :title => item.video_title, :description => item.video_description, :url => item.url} }.to_json
-		v
+		v = videos_array.collect{|item| {:title => item.title, :image_url => item.image, :id => item.id, :nextPageToken => "#{nextPage}"}}
+		v.to_json
+	end
+
+	get '/api/v1/youtube/:page' do
+		content_type :json
+		page = params[:page]
+		youtube_api_key = "AIzaSyCX9srp3Wu-yoJVU6JjmBkQ_IYvhFqCAXo"
+		#getting the youtube id from the channel. If the id isn't your own then you won't be able to see it on YouTube's page so you must request for it
+		channel_info = JSON.parse RestClient.get "https://www.googleapis.com/youtube/v3/channels", {:params => {:part => "snippet, contentDetails", :forUsername => "Bum1six3", :key => "#{youtube_api_key}"}}
+		playlist_id = channel_info["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+		#puts playlist_id
+		videos = JSON.parse RestClient.get "https://www.googleapis.com/youtube/v3/playlistItems", {:params => {:part=> "snippet", :key => "#{youtube_api_key}", :playlistId => "#{playlist_id}", :pageToken => "#{page}"}}
+		
+		nextPage = videos["nextPageToken"]
+		page = nextPage
+		#puts nextPage
+		video_items = videos["items"]
+	
+		videos_array = Array.new
+		
+		for i in 0...video_items.length
+			videos_array[i] = YouTubeVideo.new(video_items[i]["snippet"]["title"], video_items[i]["snippet"]["thumbnails"]["maxres"]["url"], video_items[i]["snippet"]["resourceId"]["videoId"])
+		end
+		v = videos_array.collect{|item| {:title => item.title, :image_url => item.image, :id => item.id, :nextPageToken => "#{nextPage}"}}
+		v.to_json
 	end
 	#Twitch past broadcast endpoint
 	get '/api/v1/twitch' do
-		twitch = JSON.parse(RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3')
+		#twitch = JSON.parse(RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3')
 
 		#Try to get past broadcast videos
 		twitch_highlights = JSON.parse RestClient.get 'https://api.twitch.tv/kraken/channels/bum1six3/videos', {:params => {:limit => '20', :broadcasts => 'true'}}
