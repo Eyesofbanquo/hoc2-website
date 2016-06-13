@@ -1,0 +1,6 @@
+production:
+  adapter: 'postgresql'
+  host: 'ec2-50-19-227-171.compute-1.amazonaws.com'
+  username: 'tvafkumbxjmpdi'
+  database: 'db8b8bp63g89t'
+		port: '5432'
