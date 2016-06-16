@@ -19,7 +19,7 @@ class Device
 	property :device,	Text
 end
 
-DataMapper.finalize.auto_migrate!
+DataMapper.finalize.auto_upgrade!
 #Device.auto_migrate!
 
 #Uncomment this so that the server will be able to speak to javascript
